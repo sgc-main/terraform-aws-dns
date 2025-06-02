@@ -1,0 +1,53 @@
+formatter: markdown table
+
+output-values:
+  enabled: false
+  from: ""
+
+sort:
+  enabled: true
+  by: name
+
+recursive:
+  enabled: true
+
+output:
+  file: README.md
+  mode: inject
+
+settings:
+  color: true
+  escape: true
+  hide-empty: true
+  indent: 2
+  required: false
+  sensitive: true
+
+content: |-
+  ## Examples
+
+  ### DNS Hosted Zones 
+
+  ```hcl
+  {{ include "examples/dns-hosted-zone-simple.tf" }}
+  ```  
+
+  ```hcl
+  {{ include "examples/dns-hosted-zone-public-delegation-set.tf" }}
+  ```  
+
+  ```hcl
+  {{ include "examples/dns-hosted-zone-private-association.tf" }}
+  ```  
+
+  ### DNS Resolver Endpoint
+
+  ```hcl
+  {{ include "examples/dns-resolver-endpoint.tf" }}
+  ```  
+
+  ### DNS Resolver Rule
+
+  ```hcl
+  {{ include "examples/dns-resolver-rule.tf" }}
+  ```  

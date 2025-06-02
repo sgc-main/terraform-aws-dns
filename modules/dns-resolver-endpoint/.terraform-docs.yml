@@ -1,0 +1,33 @@
+formatter: markdown table
+
+output-values:
+  enabled: false
+  from: ""
+
+sort:
+  enabled: true
+  by: name
+
+output:
+  file: README.md
+  mode: inject
+
+settings:
+  color: true
+  escape: true
+  hide-empty: true
+  indent: 2
+  required: false
+  sensitive: true
+
+content: |-
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
