@@ -25,7 +25,7 @@ module "simple_prv_hz" {
   comment       = "Example domain"
   force_destroy = false
   zone_type     = "private"
-  vpc = {
+  vpcs = {
     "namedvpc1" = {
       vpc_id     = "vpc-12345678"
       vpc_region = "us-west-2"
@@ -120,9 +120,12 @@ module "simple_pub_hz" {
 ```  
 
 ```hcl
-
-provider "aws" {
-  region  = "us-east-1"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+    }
+  }
 }
 
 provider "aws" {
@@ -156,7 +159,7 @@ module "prv_hz_with_association_authorization" {
   zone_type      = "private"
   hub_vpcs       = var.hub_vpcs
   associate      = true
-  vpc = {
+  vpcs = {
     "namedvpc1"  = {
       vpc_id     = "vpc-12345678"
       vpc_region = "us-east-1"
@@ -171,7 +174,7 @@ module "prv_hz_with_association_authorization" {
 module "prv_hz_with_authorization" {
   source         = "github.com/sgc-main/terraform-aws-dns/modules/dns-hosted-zone-hub-association"
   
-  phz_ids        = [ module.prv_hz_with_association_authorization.zone_id ]
+  phz            = { "simple-prv-hz.com" = module.prv_hz_with_association_authorization.zone_id }
   hub_vpcs       = var.hub_vpcs
   tags           = { Environment = "Production" }
   providers      = { aws = aws.hub_account }

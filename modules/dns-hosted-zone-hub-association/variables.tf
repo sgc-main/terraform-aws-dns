@@ -1,7 +1,7 @@
-variable phz_ids {
-  type        = list(string)
-  description = "List of delegated Private Hosted Zone IDs to associate with the VPCs in the hub account"
-  default     = []
+variable phz {
+  description = "Name/ID map of delegated Private Hosted Zone IDs to associate with the VPCs in the hub account"
+  type        = map(string)
+  default     = {}
 }
 
 variable "hub_vpcs" {

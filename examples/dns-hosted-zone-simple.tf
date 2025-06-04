@@ -7,7 +7,7 @@ module "simple_prv_hz" {
   comment       = "Example domain"
   force_destroy = false
   zone_type     = "private"
-  vpc = {
+  vpcs = {
     "namedvpc1" = {
       vpc_id     = "vpc-12345678"
       vpc_region = "us-west-2"

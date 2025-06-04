@@ -23,7 +23,7 @@ In this setup, association authorizations are created in multiple spoke accounts
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
 | <a name="input_hub_vpcs"></a> [hub\_vpcs](#input\_hub\_vpcs) | Map of VPCs to associate with the Private Hosted Zones, where the key is the VPC name | <pre>map(object({<br/>      vpc_id     = string<br/>      vpc_region = optional(string)<br/>  }))</pre> | `{}` |
-| <a name="input_phz_ids"></a> [phz\_ids](#input\_phz\_ids) | List of delegated Private Hosted Zone IDs to associate with the VPCs in the hub account | `list(string)` | `[]` |
+| <a name="input_phz"></a> [phz](#input\_phz) | Name/ID map of delegated Private Hosted Zone IDs to associate with the VPCs in the hub account | `map(string)` | `{}` |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags added to all zones. Will take precedence over tags from the 'zones' variable | `map(string)` | `{}` |
 
 <!-- END_TF_DOCS -->
